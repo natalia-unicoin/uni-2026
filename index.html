@@ -97,6 +97,7 @@
     </section>
 
     <script>
+      // Hero Slider logic
       const container = document.querySelector('.hero-slider-container');
       const dots = document.querySelectorAll('.dot');
       
@@ -114,12 +115,48 @@
         });
       }
 
-      // Auto-scroll every 8 seconds
       let currentIdx = 0;
       setInterval(() => {
         currentIdx = (currentIdx + 1) % dots.length;
         scrollToSlide(currentIdx);
       }, 8000);
+
+      // Countdown logic
+      const targetDate = new Date("September 28, 2026 00:00:00").getTime();
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Update Hero Countdown
+        const heroModule = document.querySelector('.countdown-module');
+        if (heroModule) {
+          heroModule.innerHTML = `
+            <div class="unit" style="color: #fff;"><strong>DAYS</strong><br>${days}</div>
+            <div class="unit" style="color: #fff;"><strong>HOURS</strong><br>${hours}</div>
+            <div class="unit" style="color: #fff;"><strong>MINUTES</strong><br>${minutes}</div>
+            <div class="unit" style="color: #fff;"><strong>SECONDS</strong><br>${seconds}</div>
+          `;
+        }
+
+        // Update Bottom Countdown
+        const miniModule = document.querySelector('.countdown-mini');
+        if (miniModule) {
+          miniModule.innerHTML = `
+            <div>${days}<br><span style="font-size: 0.8rem; opacity: 0.6;">DAYS</span></div>
+            <div>${hours}<br><span style="font-size: 0.8rem; opacity: 0.6;">HOURS</span></div>
+            <div>${minutes}<br><span style="font-size: 0.8rem; opacity: 0.6;">MINUTES</span></div>
+          `;
+        }
+      }
+
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
     </script>
 
     <!-- SECTION 2: WHAT IS UNICOIN? -->
