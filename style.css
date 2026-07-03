@@ -82,7 +82,7 @@ p.intro-copy {
 .btn-modern {
   display: inline-block;
   padding: 1rem 3rem;
-  border-radius: 4px; /* More modern/clean than round */
+  border-radius: 8px; /* Modern pro radius */
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
@@ -245,18 +245,18 @@ header {
 /* Dots */
 .slider-dots {
   position: absolute;
-  bottom: 12rem; /* Above countdown */
+  bottom: 3rem; /* Where the arrows were */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 1rem;
+  gap: 1.2rem;
   z-index: 20;
 }
 
 .dot {
-  width: 10px;
-  height: 10px;
-  background: rgba(255, 255, 255, 0.3);
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.4);
   border-radius: 50%;
   cursor: pointer;
   transition: var(--transition);
@@ -268,14 +268,7 @@ header {
 }
 
 .scroll-indicator {
-  position: absolute;
-  bottom: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-  animation: bounce 2s infinite;
-  cursor: pointer;
-  color: white;
+  display: none; /* Removed as requested */
 }
 
 @keyframes bounce {
