@@ -141,7 +141,24 @@ footer {
   color: var(--color-text-muted);
 }
 
-.footer-links li:hover { color: #000; cursor: pointer; }
+.footer-links li:hover {
+  color: var(--color-gold);
+}
+
+.social-icon {
+  color: #000;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+}
+
+.social-icon:hover {
+  color: var(--color-gold);
+  opacity: 1;
+  transform: translateY(-2px);
+}
 
 .footer-bottom {
   margin-top: 3rem;
